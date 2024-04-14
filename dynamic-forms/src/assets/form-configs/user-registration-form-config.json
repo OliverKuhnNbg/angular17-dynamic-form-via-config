@@ -1,0 +1,29 @@
+[
+    {
+      "type": "text",
+      "label": "First Name",
+      "name": "firstName",
+      "placeholder": "Enter your first name",
+      "validation": {
+        "required": true
+      }
+    },
+    {
+      "type": "text",
+      "label": "Last Name",
+      "name": "lastName",
+      "placeholder": "Enter your last name",
+      "validation": {
+        "required": true
+      }
+    },
+    {
+      "type": "email",
+      "label": "Email Address",
+      "name": "email",
+      "placeholder": "Enter your email",
+      "validation": {
+        "required": true
+      }
+    }
+  ]

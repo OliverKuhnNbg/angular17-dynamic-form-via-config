@@ -1,0 +1,21 @@
+
+<div>{{formFields!.length}}</div>
+<!-- dynamic generated form -->
+<div *ngIf="formFields!.length > 0">
+  <form [formGroup]="formGroup" (ngSubmit)="onSubmit()">
+      <div *ngFor="let field of this.formFields; let i = index">
+        {{ i + 1 }} {{ field.name}} {{ field.label }} {{ field.type }} 
+        <div class="input-group">
+        <input type="{{field.type}}" formControlName="{{field.name}}" class="form-control" placeholder="{{field.label}}" aria-label="item.label" >
+        </div>
+      </div>
+
+      <button type="submit">Submit</button>
+  </form>
+</div>
+
+<br/><br/>
+<!-- Show results -->
+<div>
+  {{formGroup.value.firstName}} {{formGroup.value.lastName}} {{formGroup.value.email}}
+</div>
