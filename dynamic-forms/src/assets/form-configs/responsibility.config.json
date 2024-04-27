@@ -15,28 +15,36 @@
         "to": 200
       }
     ],
-    "availableForNewConnection": true,
-    "availableForConnectionChange": true
+    "connection": {
+      "availableForNewConnection": true,
+      "availableForConnectionChange": true
+    }
   },
   "gas": {
     "availableZipCodes": ["12345", "22222", "33333"],
     "whitelist": [],
     "blacklist": [],
-    "availableForNewConnection": true,
-    "availableForConnectionChange": false
+    "connection": {
+      "availableForNewConnection": true,
+      "availableForConnectionChange": false
+    }
   },
   "water": {
     "availableZipCodes": ["12345"],
     "whitelist": [],
     "blacklist": [],
-    "availableForNewConnection": true,
-    "availableForConnectionChange": false
+    "connection": {
+      "availableForNewConnection": true,
+      "availableForConnectionChange": false
+    }
   },
   "broadband": {
     "availableZipCodes": ["12345"],
     "whitelist": [],
     "blacklist": [],
-    "availableForNewConnection": false,
-    "availableForConnectionChange": true
+    "connection": {
+      "availableForNewConnection": false,
+      "availableForConnectionChange": true
+    }
   }
 }
