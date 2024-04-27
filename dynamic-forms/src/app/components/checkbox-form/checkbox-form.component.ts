@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-checkbox-form',
@@ -8,5 +9,12 @@ import { Component } from '@angular/core';
   styleUrl: './checkbox-form.component.scss'
 })
 export class CheckboxFormComponent {
+  serviceFormCategorys: FormGroup;
 
+  constructor(private fb: FormBuilder) {
+    this.serviceFormCategorys = this.fb.group({
+      name: ['', Validators.required],
+      email: ['', [Validators.required, Validators.email]]
+    });
+  }
 }
