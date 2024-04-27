@@ -17,7 +17,7 @@ export class CheckboxFormComponent {
   serviceFormCategorys: FormGroup = new FormGroup({});
   serviceFormData: any;
   serviceNames: string[] = [''];
-  serviceTypesNames: string[] = [''];
+  serviceTypeNames: string[] = [''];
 
   inputType: string = 'checkbox';
 
@@ -37,9 +37,9 @@ export class CheckboxFormComponent {
     console.log('--------------------\n\n\tcreateForm(serviceFormData: any)\n-----------------------\n\n');
     console.log('DATA1:\n------------------',this.serviceFormData);
     this.serviceNames = this.getServiceNames(this.serviceFormData);
-    this.serviceTypesNames = this.getServiceNames(this.serviceFormData.water.connection);
+    this.serviceTypeNames = this.getServiceNames(this.serviceFormData.water.connection);
     console.log('DATA3:\n------------------',this.serviceNames);
-    console.log('DATA4:\n------------------',this.serviceTypesNames);
+    console.log('DATA4:\n------------------',this.serviceTypeNames);
 
     const mainFormGroup = this.fb.group({});
     const serviceCategoryFormGroup = this.fb.group({});
