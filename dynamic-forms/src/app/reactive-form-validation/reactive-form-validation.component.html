@@ -7,11 +7,18 @@
                 <input type="text" aria-label="Last name" placeholder="Last Name" class="form-control" formControlName="lastName">
             </div>
             <div class="col-12">
-                <span class="text-danger fs-6 fw-light" *ngIf="userForm.controls['firstName'].touched">
-                    - Please provide a first name. -
+                <span class="text-danger fs-6 fw-light" *ngIf="userForm.controls['firstName'].invalid  && userForm.controls['firstName'].touched || userForm.controls['firstName'].dirty">
+                    <span *ngIf="userForm.controls['firstName'].errors != null && userForm.controls['firstName'].errors['required']" >
+                        - Please provide a first name. -
+                    </span>
                 </span>
-                <span class="text-danger fs-6 fw-light">
-                    - Please provide a last name. -
+                <span class="text-danger fs-6 fw-light" *ngIf="userForm.controls['lastName'].invalid  && userForm.controls['lastName'].touched || userForm.controls['firstName'].dirty">
+                    <span *ngIf="userForm.controls['lastName'].errors != null && userForm.controls['lastName'].errors['required']" >
+                        - Please provide a last name. -
+                    </span>
+                    <span *ngIf="userForm.controls['lastName'].errors != null && userForm.controls['lastName'].errors['minlength']" >
+                        - Last name must have 4 chars. -
+                    </span>
                 </span>
             </div>
         </div>
