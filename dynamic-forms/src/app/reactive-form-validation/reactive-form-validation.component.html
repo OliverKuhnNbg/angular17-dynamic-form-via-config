@@ -12,7 +12,7 @@
                         - Please provide a first name. -
                     </span>
                 </span>
-                <span class="text-danger fs-6 fw-light" *ngIf="userForm.controls['lastName'].invalid  && userForm.controls['lastName'].touched || userForm.controls['firstName'].dirty">
+                <span class="text-danger fs-6 fw-light" *ngIf="userForm.controls['lastName'].invalid  && userForm.controls['lastName'].touched || userForm.controls['lastName'].dirty">
                     <span *ngIf="userForm.controls['lastName'].errors != null && userForm.controls['lastName'].errors['required']" >
                         - Please provide a last name. -
                     </span>
@@ -28,9 +28,14 @@
                 <input type="text" aria-label="User Name" placeholder="User Name" class="form-control" formControlName="userName">
             </div>
             <div class="col-12">
-                <div class="text-danger fs-6 fw-light">
-                    - Please provide a email as user name. -
-                </div>
+                <span class="text-danger fs-6 fw-light" *ngIf="userForm.controls['userName'].invalid  && userForm.controls['userName'].touched || userForm.controls['userName'].dirty">
+                    <span *ngIf="userForm.controls['userName'].errors != null && userForm.controls['userName'].errors['required']" >
+                        - Please provide a user name. -
+                    </span>
+                    <span *ngIf="userForm.controls['userName'].errors != null && userForm.controls['userName'].errors['email']" >
+                        - User name must be an email. -
+                    </span>
+                </span>
             </div>
         </div>
         <div class="row mb-3">
