@@ -7,7 +7,7 @@
                 <input type="text" aria-label="Last name" placeholder="Last Name" class="form-control" formControlName="lastName">
             </div>
             <div class="col-12">
-                <span class="text-danger fs-6 fw-light">
+                <span class="text-danger fs-6 fw-light" *ngIf="userForm.controls['firstName'].touched">
                     - Please provide a first name. -
                 </span>
                 <span class="text-danger fs-6 fw-light">
