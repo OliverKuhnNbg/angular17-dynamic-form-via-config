@@ -30,8 +30,10 @@
                     </div>
                 </div>
             </div>
-      
-            <button class="btn btn-dark" type="submit">Submit</button>
+            
+            <div class="row">
+                <button class="btn btn-dark"  [disabled]="!serviceFormCategorys.valid" type="submit">Submit Form</button>
+            </div>
         </form>
     </div>
 </div>

@@ -30,7 +30,19 @@ export class CheckboxFormComponent {
     this.formConfigService.getResponsibilityFormConfig().subscribe((data:any) => {
       this.serviceFormData = data;
       if(data!=undefined) this.createForm();
+      if(data!= undefined) {
+        this.serviceFormCategorys.statusChanges.subscribe((val) => {
+          console.log(val)
+          console.log("#################TEST Chage");
+          Object.keys(this.serviceFormCategorys.controls).map((controlName) =>{
+            const checkboxControl = this.serviceFormCategorys.get(controlName);
+            console.log("formcontrolValue: ", controlName, this.serviceFormCategorys.get(controlName)?.value);
+          });
+          val;
+        });
+      }
     });
+    
   }
 
   private createForm() {
@@ -51,7 +63,7 @@ export class CheckboxFormComponent {
       serviceCategoryFormGroup.addControl(name, new FormControl(false));
     });
     /** add validation */
-
+    serviceCategoryFormGroup.invalid
 
     this.serviceFormCategorys = serviceCategoryFormGroup;
     console.log('\n\nDATA6:\n------------------', serviceCategoryFormGroup);
