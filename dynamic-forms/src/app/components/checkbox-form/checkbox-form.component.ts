@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { AbstractControl, FormBuilder, FormControl, FormGroup, ReactiveFormsModule, ValidationErrors, ValidatorFn, Validators } from '@angular/forms';
 import { FormConfigService } from '../../services/form-config.service';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
@@ -44,15 +44,19 @@ export class CheckboxFormComponent {
     const mainFormGroup = this.fb.group({});
     const serviceCategoryFormGroup = this.fb.group({});
     const serviceTypeFormGroup = this.fb.group({});
-    console.log('\n\nDATA5:\n------------------',serviceCategoryFormGroup);
+    console.log('\n\nDATA5:\n------------------', serviceCategoryFormGroup);
+
+    /** add form controls */
     this.serviceNames.map((name) => {
       serviceCategoryFormGroup.addControl(name, new FormControl(false));
     });
+    /** add validation */
 
 
     this.serviceFormCategorys = serviceCategoryFormGroup;
     console.log('\n\nDATA6:\n------------------', serviceCategoryFormGroup);
   }
+
   private getJsonObjNames(serviceFormData: any) {
     let names:string[] = []
     Object.entries(serviceFormData!).map(([key]) => {
@@ -60,6 +64,32 @@ export class CheckboxFormComponent {
     });
     return names;
   }
+
+  /* Custom validators */
+  private requireAtLeastOneCheckbox(formControlNames: string[]): ValidatorFn {
+    return (control: AbstractControl): ValidationErrors | null => {
+      // Workaround: Parameter can not be of type "FormGroup" as it does not match "ValidatorFn" signature
+      const formGroup = control as FormGroup;
+      const setFormControlErrors = (errors: ValidationErrors | null) => {
+        formControlNames.forEach((fcn) => formGroup.get(fcn)?.setErrors(errors));
+      };
+
+      setFormControlErrors(null);
+
+      const atLeastOneControlChecked = formControlNames.some(
+        (formControlName) => {
+          return formGroup.get(formControlName)?.value;
+        }
+      );
+
+      if (!atLeastOneControlChecked) {
+        setFormControlErrors({ required: true });
+      }
+
+      return null;
+    };
+  }
+
 
   onSubmit() {
     console.log('\n\nDATA7:\n------------------', this.serviceFormCategorys.controls);
