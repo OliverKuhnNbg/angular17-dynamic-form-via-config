@@ -1,23 +1,44 @@
 <div class="container-fluid">
     <form [formGroup]="userForm">
-        <div class="row col-12 mb-3">
-            <div class="input-group">
+        <div class="row mb-3">
+            <div class=" col-12 input-group">
                 <span class="input-group-text">First Name / Last Name</span>
-                <input type="text" aria-label="First name" placeholder="First Name" class="form-control">
-                <input type="text" aria-label="Last name" placeholder="Last Name" class="form-control">
+                <input type="text" aria-label="First name" placeholder="First Name" class="form-control" formControlName="firstName">
+                <input type="text" aria-label="Last name" placeholder="Last Name" class="form-control" formControlName="lastName">
+            </div>
+            <div class="col-12">
+                <span class="text-danger fs-6 fw-light">
+                    - Please provide a first name. -
+                </span>
+                <span class="text-danger fs-6 fw-light">
+                    - Please provide a last name. -
+                </span>
             </div>
         </div>
-        <div class="row col-12 mb-3">
-            <div class="input-group">
+        <div class="row mb-3">
+            <div class="col-12 input-group">
                 <span class="input-group-text">User Name</span>
-                <input type="text" aria-label="User Name" placeholder="User Name" class="form-control">
+                <input type="text" aria-label="User Name" placeholder="User Name" class="form-control" formControlName="userName">
+            </div>
+            <div class="col-12">
+                <div class="text-danger fs-6 fw-light">
+                    - Please provide a email as user name. -
+                </div>
+            </div>
+        </div>
+        <div class="row mb-3">
+            <div class="col-12 input-group">
+                <span class="input-group-text">City / Zip</span>
+                <input type="text" aria-label="City" placeholder="City" class="form-control" formControlName="city">
+                <input type="text" aria-label="Zip" placeholder="Zip" class="form-control" formControlName="zip">
             </div>
         </div>
         <div class="row col-12 mb-3">
-            <div class="input-group">
-                <span class="input-group-text">City / Zip</span>
-                <input type="text" aria-label="City" placeholder="City" class="form-control">
-                <input type="text" aria-label="Zip" placeholder="Zip" class="form-control">
+            <div class="ms-3 form-check">
+                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" formControlName="isAgree">
+                <label class="form-check-label" for="flexCheckDefault">
+                    Agree to Terms
+                </label>
             </div>
         </div>
 
