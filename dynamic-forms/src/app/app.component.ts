@@ -3,11 +3,12 @@ import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import { RouterOutlet } from '@angular/router';
 import { DynamicFormComponent } from './components/dynamic-form/dynamic-form.component';
 import { CheckboxFormComponent } from './components/checkbox-form/checkbox-form.component';
+import { ReactiveFormValidationComponent } from './reactive-form-validation/reactive-form-validation.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, ReactiveFormsModule, DynamicFormComponent, CheckboxFormComponent],
+  imports: [RouterOutlet, ReactiveFormsModule, DynamicFormComponent, CheckboxFormComponent, ReactiveFormValidationComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
