@@ -1,5 +1,6 @@
 
-<div>{{formFields!.length}}</div>
+<div>Form Filed Data arry length: {{formFields!.length}}</div>
+<hr/>
 <!-- dynamic generated form -->
 <div *ngIf="formFields!.length > 0">
   <form [formGroup]="formGroup" (ngSubmit)="onSubmit()">
@@ -13,8 +14,7 @@
       <button type="submit">Submit</button>
   </form>
 </div>
-
-<br/><br/>
+<hr/>
 <!-- Show results -->
 <div>
   {{formGroup.value.firstName}} {{formGroup.value.lastName}} {{formGroup.value.email}}
