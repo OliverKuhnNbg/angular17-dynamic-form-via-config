@@ -36,8 +36,8 @@ export class CheckboxFormComponent {
   private createForm() {
     console.log('--------------------\n\n\tcreateForm(serviceFormData: any)\n-----------------------\n\n');
     console.log('DATA1:\n------------------',this.serviceFormData);
-    this.serviceNames = this.getServiceNames(this.serviceFormData);
-    this.serviceTypeNames = this.getServiceNames(this.serviceFormData.water.connection);
+    this.serviceNames = this.getJsonObjNames(this.serviceFormData);
+    this.serviceTypeNames = this.getJsonObjNames(this.serviceFormData.water.connection);
     console.log('DATA3:\n------------------',this.serviceNames);
     console.log('DATA4:\n------------------',this.serviceTypeNames);
 
@@ -49,10 +49,11 @@ export class CheckboxFormComponent {
       serviceCategoryFormGroup.addControl(name, new FormControl(false));
     });
 
+
     this.serviceFormCategorys = serviceCategoryFormGroup;
     console.log('\n\nDATA6:\n------------------', serviceCategoryFormGroup);
   }
-  private getServiceNames(serviceFormData: any) {
+  private getJsonObjNames(serviceFormData: any) {
     let names:string[] = []
     Object.entries(serviceFormData!).map(([key]) => {
       names.push(key);
