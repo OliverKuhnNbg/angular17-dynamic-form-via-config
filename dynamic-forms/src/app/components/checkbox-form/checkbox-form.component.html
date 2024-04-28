@@ -18,6 +18,7 @@
                     </div>
                 </div>
             </div>
+            <!--
             <div class="row">
                 <div class="col-5" *ngFor="let field of serviceTypeNames, let i = index">
                     <div class="input-group">
@@ -30,10 +31,12 @@
                     </div>
                 </div>
             </div>
-            
+            -->
             <div class="row mt-4">
-                <button class="btn btn-dark"  [disabled]="!serviceFormCategorys.valid" type="submit">Submit Form</button>
+                <button class="btn btn-dark" [disabled]="!serviceFormCategorys.valid" type="submit">Submit Form</button>
             </div>
         </form>
+        <p>FormStatus Tracking: {{ serviceFormCategorys.status }}</p>
+        <p>FormStatus Tracking: {{ serviceFormCategorys.valueChanges }}</p>
     </div>
 </div>
