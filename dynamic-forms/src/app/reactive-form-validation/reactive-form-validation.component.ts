@@ -11,15 +11,22 @@ import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angula
 })
 export class ReactiveFormValidationComponent {
   userForm: FormGroup;
+  isFormSubmitted: boolean = false;
 
   constructor(){
     this.userForm = new FormGroup({
       firstName: new FormControl('', [Validators.required]),
       lastName: new FormControl('', [Validators.required, Validators.minLength(4)]),
-      userName: new FormControl(',', [Validators.required, Validators.email]),
+      userName: new FormControl('', [Validators.required, Validators.email]),
       city: new FormControl(''),
       zip: new FormControl(''),
       isAgree: new FormControl(false),
     })
+  }
+
+  handleClick() {
+    console.log(this.userForm.status)
+    
+    this.isFormSubmitted = true;
   }
 }

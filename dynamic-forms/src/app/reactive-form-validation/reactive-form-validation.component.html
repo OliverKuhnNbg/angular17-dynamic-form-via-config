@@ -7,12 +7,14 @@
                 <input type="text" aria-label="Last name" placeholder="Last Name" class="form-control" formControlName="lastName">
             </div>
             <div class="col-12">
-                <span class="text-danger fs-6 fw-light" *ngIf="userForm.controls['firstName'].invalid  && userForm.controls['firstName'].touched || userForm.controls['firstName'].dirty">
+                <span class="text-danger fs-6 fw-light" *ngIf="userForm.controls['firstName'].invalid  && 
+                    userForm.controls['firstName'].touched || userForm.controls['firstName'].dirty || isFormSubmitted">
                     <span *ngIf="userForm.controls['firstName'].errors != null && userForm.controls['firstName'].errors['required']" >
                         - Please provide a first name. -
                     </span>
                 </span>
-                <span class="text-danger fs-6 fw-light" *ngIf="userForm.controls['lastName'].invalid  && userForm.controls['lastName'].touched || userForm.controls['lastName'].dirty">
+                <span class="text-danger fs-6 fw-light" *ngIf="userForm.controls['lastName'].invalid  && 
+                    userForm.controls['lastName'].touched || userForm.controls['lastName'].dirty || isFormSubmitted">
                     <span *ngIf="userForm.controls['lastName'].errors != null && userForm.controls['lastName'].errors['required']" >
                         - Please provide a last name. -
                     </span>
@@ -28,7 +30,8 @@
                 <input type="text" aria-label="User Name" placeholder="User Name" class="form-control" formControlName="userName">
             </div>
             <div class="col-12">
-                <span class="text-danger fs-6 fw-light" *ngIf="userForm.controls['userName'].invalid  && userForm.controls['userName'].touched || userForm.controls['userName'].dirty">
+                <span class="text-danger fs-6 fw-light" *ngIf="userForm.controls['userName'].invalid  && 
+                    userForm.controls['userName'].touched || userForm.controls['userName'].dirty || isFormSubmitted">
                     <span *ngIf="userForm.controls['userName'].errors != null && userForm.controls['userName'].errors['required']" >
                         - Please provide a user name. -
                     </span>
@@ -56,8 +59,9 @@
 
         <div class="row col-12 mb-3 mt-4">
             <div class="input-group">
-                <button class="btn btn-dark" type="submit"> submit form </button>
+                <button class="btn btn-dark" type="submit" (click)="handleClick()"> submit form </button>
             </div>
         </div>
     </form>
+    <div class="mt-4">FormStatus Tracking: {{ userForm.status }}</div>
 </div>
