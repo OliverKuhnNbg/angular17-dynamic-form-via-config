@@ -1,0 +1,50 @@
+{
+  "electricity": {
+    "availableZipCodes": ["12345", "12346", "12347"],
+    "whitelist": [
+      {
+        "street": "Musterstraße",
+        "from": 100,
+        "to": 150
+      }
+    ],
+    "blacklist": [
+      {
+        "street": "Musterstraße",
+        "from": 151,
+        "to": 200
+      }
+    ],
+    "connection": {
+      "availableForNewConnection": true,
+      "availableForConnectionChange": true
+    }
+  },
+  "gas": {
+    "availableZipCodes": ["12345", "22222", "33333"],
+    "whitelist": [],
+    "blacklist": [],
+    "connection": {
+      "availableForNewConnection": true,
+      "availableForConnectionChange": false
+    }
+  },
+  "water": {
+    "availableZipCodes": ["12345"],
+    "whitelist": [],
+    "blacklist": [],
+    "connection": {
+      "availableForNewConnection": true,
+      "availableForConnectionChange": false
+    }
+  },
+  "broadband": {
+    "availableZipCodes": ["12345"],
+    "whitelist": [],
+    "blacklist": [],
+    "connection": {
+      "availableForNewConnection": false,
+      "availableForConnectionChange": true
+    }
+  }
+}

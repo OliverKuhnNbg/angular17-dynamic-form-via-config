@@ -30,16 +30,16 @@ export class DynamicFormComponent {
   }
 
   private createFormGroup() {
-    console.log("\n\ncreate Form group called!");
-    console.log(this.formFields?.length );
+    // console.log("\n\ncreate Form group called!");
+    // console.log(this.formFields?.length );
 
     if (this.formFields) {
-      console.log("enter func");
+      // console.log("enter func");
       this.formFields.map((field) => {
-        console.log("\n-------------------------");
-        console.log(field.type);
-        console.log(field.name);
-        console.log(field.label);
+        // console.log("\n-------------------------");
+        // console.log(field.type);
+        // console.log(field.name);
+        // console.log(field.label);
         this.formGroup.addControl(field.name, new FormControl(''));
       })
     }
@@ -61,8 +61,8 @@ export class DynamicFormComponent {
   }
 
   onSubmit() {
-    console.log(this.formGroup.controls);
-    console.log(Object.keys(this.formGroup.controls).length)
+    // console.log(this.formGroup.controls);
+    // console.log(Object.keys(this.formGroup.controls).length)
     throw new Error('Method not implemented.');
   }
 }

@@ -11,7 +11,18 @@ export class FormConfigService {
   }
 
   private readonly _dynamicFormConfig$ = this.httpClient
-    .get("assets/form-configs/user-registration-form-config.json", {
+    .get('assets/form-configs/user-registration-form-config.json', {
+      responseType: 'json'
+    })
+    .pipe(
+      shareReplay({
+        bufferSize: 1,
+        refCount: true
+      })
+    );
+
+  private readonly _responsibilityFormConfig$ = this.httpClient
+    .get('assets/form-configs/responsibility.config.json', {
       responseType: 'json'
     })
     .pipe(
@@ -23,5 +34,8 @@ export class FormConfigService {
 
   getJsonFormConfig(url:string) {
     return this._dynamicFormConfig$;
+  }
+  getResponsibilityFormConfig() { //assets/form-configs/responsibility.config.json
+    return this._responsibilityFormConfig$;
   }
 }
