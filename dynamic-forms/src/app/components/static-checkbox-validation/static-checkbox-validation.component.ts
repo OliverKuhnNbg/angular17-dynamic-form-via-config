@@ -38,6 +38,7 @@ export class StaticCheckboxValidationComponent {
     // this.checkboxForm.controls['serviceType'].get('connectionChange')?.disable();
     // this.checkboxForm.controls['serviceType'].get('newConnection')?.disable();
   }
+  
   /* Custom validators */
   private requireAtLeastOneCheckbox(
     formControlNames: string[]
