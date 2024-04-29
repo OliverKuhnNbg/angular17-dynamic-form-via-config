@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormGroup } from '@angular/forms';
+import { AbstractControl, FormControl, FormGroup, ValidationErrors, ValidatorFn } from '@angular/forms';
 
 @Component({
   selector: 'app-static-checkbox-validation',
@@ -9,6 +9,14 @@ import { FormGroup } from '@angular/forms';
   styleUrl: './static-checkbox-validation.component.scss'
 })
 export class StaticCheckboxValidationComponent {
-  private checkboxForm = new FormGroup({});
 
+  checkboxForm: FormGroup;
+
+  constructor() {
+    this.checkboxForm = new FormGroup({
+      
+    });
+  }
 }
+
+
