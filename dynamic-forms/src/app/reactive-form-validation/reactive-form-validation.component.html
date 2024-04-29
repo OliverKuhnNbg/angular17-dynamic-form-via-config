@@ -1,0 +1,67 @@
+<div class="container-fluid">
+    <form [formGroup]="userForm">
+        <div class="row mb-3">
+            <div class=" col-12 input-group">
+                <span class="input-group-text">First Name / Last Name</span>
+                <input type="text" aria-label="First name" placeholder="First Name" class="form-control" formControlName="firstName">
+                <input type="text" aria-label="Last name" placeholder="Last Name" class="form-control" formControlName="lastName">
+            </div>
+            <div class="col-12">
+                <span class="text-danger fs-6 fw-light" *ngIf="userForm.controls['firstName'].invalid  && 
+                    userForm.controls['firstName'].touched || userForm.controls['firstName'].dirty || isFormSubmitted">
+                    <span *ngIf="userForm.controls['firstName'].errors != null && userForm.controls['firstName'].errors['required']" >
+                        - Please provide a first name. -
+                    </span>
+                </span>
+                <span class="text-danger fs-6 fw-light" *ngIf="userForm.controls['lastName'].invalid  && 
+                    userForm.controls['lastName'].touched || userForm.controls['lastName'].dirty || isFormSubmitted">
+                    <span *ngIf="userForm.controls['lastName'].errors != null && userForm.controls['lastName'].errors['required']" >
+                        - Please provide a last name. -
+                    </span>
+                    <span *ngIf="userForm.controls['lastName'].errors != null && userForm.controls['lastName'].errors['minlength']" >
+                        - Last name must have 4 chars. -
+                    </span>
+                </span>
+            </div>
+        </div>
+        <div class="row mb-3">
+            <div class="col-12 input-group">
+                <span class="input-group-text">User Name</span>
+                <input type="text" aria-label="User Name" placeholder="User Name" class="form-control" formControlName="userName">
+            </div>
+            <div class="col-12">
+                <span class="text-danger fs-6 fw-light" *ngIf="userForm.controls['userName'].invalid  && 
+                    userForm.controls['userName'].touched || userForm.controls['userName'].dirty || isFormSubmitted">
+                    <span *ngIf="userForm.controls['userName'].errors != null && userForm.controls['userName'].errors['required']" >
+                        - Please provide a user name. -
+                    </span>
+                    <span *ngIf="userForm.controls['userName'].errors != null && userForm.controls['userName'].errors['email']" >
+                        - User name must be an email. -
+                    </span>
+                </span>
+            </div>
+        </div>
+        <div class="row mb-3">
+            <div class="col-12 input-group">
+                <span class="input-group-text">City / Zip</span>
+                <input type="text" aria-label="City" placeholder="City" class="form-control" formControlName="city">
+                <input type="text" aria-label="Zip" placeholder="Zip" class="form-control" formControlName="zip">
+            </div>
+        </div>
+        <div class="row col-12 mb-3">
+            <div class="ms-3 form-check">
+                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" formControlName="isAgree">
+                <label class="form-check-label" for="flexCheckDefault">
+                    Agree to Terms
+                </label>
+            </div>
+        </div>
+
+        <div class="row col-12 mb-3 mt-4">
+            <div class="input-group">
+                <button class="btn btn-dark" type="submit" (click)="handleClick()"> submit form </button>
+            </div>
+        </div>
+    </form>
+    <div class="mt-4">FormStatus Tracking: {{ userForm.status }}</div>
+</div>
