@@ -1,34 +1,38 @@
 <p>static-checkbox-validation works!</p>
 <div class="container-fluid">
-    <form>
+    <form [formGroup]="checkboxForm">
         <div class="row mb-3 h5">first set:</div>
-        <div class="row mb-3">
-            <div class=" col-3 form-check">
-                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                <label class="form-check-label" for="flexCheckDefault">one</label>
-            </div>
-            <div class=" col-3 form-check">
-                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                <label class="form-check-label" for="flexCheckDefault">second</label>
-            </div>
-            <div class=" col-3 form-check">
-                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                <label class="form-check-label" for="flexCheckDefault">third</label>
-            </div>
-            <div class=" col-3 form-check">
-                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                <label class="form-check-label" for="flexCheckDefault">four</label>
+        <div formGroupName="serviceCategory">
+            <div class="row mb-3">
+                <div class=" col-3 form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" formControlName="electricity">
+                    <label class="form-check-label" for="flexCheckDefault">one</label>
+                </div>
+                <div class=" col-3 form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" formControlName="gas">
+                    <label class="form-check-label" for="flexCheckDefault">second</label>
+                </div>
+                <div class=" col-3 form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" formControlName="water">
+                    <label class="form-check-label" for="flexCheckDefault">third</label>
+                </div>
+                <div class=" col-3 form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" formControlName="broadband">
+                    <label class="form-check-label" for="flexCheckDefault">four</label>
+                </div>
             </div>
         </div>
         <div class="row mb-3 mt-5 h5">second set:</div>
-        <div class="row mb-3">
-            <div class=" col-3 form-check">
-                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                <label class="form-check-label" for="flexCheckDefault">second.one</label>
-            </div>
-            <div class="col-3 form-check">
-                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                <label class="form-check-label" for="flexCheckDefault">second.second</label>
+        <div formGroupName="serviceType">
+            <div class="row mb-3">
+                <div class=" col-3 form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" formControlName="newConnection" [disabled]="isDisabled" (click)="isDisabled && $event.stopPropagation()">
+                    <label class="form-check-label" for="flexCheckDefault">second.one</label>
+                </div>
+                <div class="col-3 form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" formControlName="connectionChange" [disabled]="isDisabled" (click)="isDisabled && $event.stopPropagation()">
+                    <label class="form-check-label" for="flexCheckDefault">second.second</label>
+                </div>
             </div>
         </div>
     </form>
